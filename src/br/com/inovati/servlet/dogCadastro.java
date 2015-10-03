@@ -39,7 +39,6 @@ public class dogCadastro extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		System.out.println("entrou no post");
 		try {
 			bo.gravaCachorro(preencheCachorro(request));
 			response.sendRedirect("http://localhost:8080/Sweet_Home/home");
@@ -51,21 +50,10 @@ public class dogCadastro extends HttpServlet {
 	private CachorroBean preencheCachorro (HttpServletRequest request){
 		CachorroBean cachorro = new CachorroBean();
 		
-		
-		System.out.println("idade: "+request.getParameter("idade"));
-		System.out.println("name: "+request.getParameter("name"));
-		System.out.println("raca: "+request.getParameter("raca"));
-		System.out.println("prevAdocao: "+request.getParameter("prevAdocao"));
-		
-		
 		cachorro.setIdade(Integer.parseInt(request.getParameter("idade")));
 		cachorro.setNome((request.getParameter("name")));
 		cachorro.setRaca((request.getParameter("raca")));
 		cachorro.setPrevAdocao((request.getParameter("prevAdocao")));
-		
-		
-		System.out.println("printando cachorro");
-		System.out.println(cachorro);
 		
 		return cachorro;
 	}

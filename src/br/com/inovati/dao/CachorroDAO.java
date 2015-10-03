@@ -15,19 +15,21 @@ public class CachorroDAO {
 	// connection atributo
 	private Connection conexao;
 
-	// construtor
-	public CachorroDAO() {
-
+	//abreconexao
+	private void abreConexao(){
 		try {
 			this.conexao = new ConnectionFactory().getConnection();
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-
 	}
 
 	// metodo add
 	public void gravarCachorro(CachorroBean cachorro) throws SQLException {
+		
+		//Abre conexao
+		abreConexao();
+		
 
 		// String SQL
 		String sql = "INSERT INTO T_NAC_CACHORRO (ds_nome, nr_idade, ds_raca, dt_prev_adocao, ds_status) VALUES (?,?,?,?,?)";
@@ -44,11 +46,18 @@ public class CachorroDAO {
 
 		// executa a estrutura
 		estrutura.execute();
-		System.out.println("-----> CachorroDAO escreveu com sucesso um cachorro no banco!");
+		System.out.println("----------> CachorroDAO escreveu com sucesso um cachorro no banco!");
+		
+		//fecha conexoes e recursos
+		estrutura.close();
+		System.out.println("----------> Fechando conexao em CachorroDao.gravarCachorro() - " + conexao.hashCode());
+		conexao.close();
 	}
 
 	// metodo de exclusao
 	public void excluirCachorro(int id) throws SQLException {
+		//Abre conexao
+		abreConexao();
 
 		// String SQL
 		String sql = "DELETE FROM T_NAC_CACHORRO WHERE CD_CACHORRO = (?)";
@@ -61,12 +70,19 @@ public class CachorroDAO {
 
 		// executa
 		estrutura.execute();
-		System.out.println("-----> CachorroDAO de id " + id + " foi removido do banco!");
+		System.out.println("----------> CachorroDAO de id " + id + " foi removido do banco!");
+
+		// fechando recursos
+		estrutura.close();
+		System.out.println("----------> Fechando conexao em CachorroDao.gravarCachorro() - " + conexao.hashCode());
+		conexao.close();
 
 	}
 
 	// metodo que retorna toda a lista de cachorros
 	public List<CachorroBean> getAll() throws SQLException {
+		//Abre conexao
+		abreConexao();
 
 		// cria a lista de cachorros
 		List<CachorroBean> lista = new ArrayList<CachorroBean>();
@@ -87,38 +103,54 @@ public class CachorroDAO {
 			lista.add(cachorro);
 		}
 
+		// fechando recursos
+		resultadoDados.close();
+		estrutura.close();
+		System.out.println("----------> Fechando conexao em CachorroDao.gravarCachorro() - " + conexao.hashCode());
+		conexao.close();
+
 		// retornando lista
 		return lista;
 	}
 
 	public CachorroBean getCachorro(int id) throws SQLException {
+		//Abre conexao
+		abreConexao();
 
 		// Prepara a query
-		PreparedStatement query = this.conexao.prepareStatement("SELECT * FROM T_NAC_CACHORRO WHERE CD_CACHORRO = (?)");
+		PreparedStatement estrutura = this.conexao
+				.prepareStatement("SELECT * FROM T_NAC_CACHORRO WHERE CD_CACHORRO = (?)");
 
 		// Atualiza o placeholder
-		query.setInt(1, id);
+		estrutura.setInt(1, id);
 
 		// executa a query
-		ResultSet resultado = query.executeQuery();
+		ResultSet resultadoDados = estrutura.executeQuery();
 
 		CachorroBean cachorro = new CachorroBean();
-		while (resultado.next()) {
-			cachorro = preencheCachorro(resultado);
+		while (resultadoDados.next()) {
+			cachorro = preencheCachorro(resultadoDados);
 		}
+
+		// fechando recursos
+		resultadoDados.close();
+		estrutura.close();
+		System.out.println("----------> Fechando conexao em CachorroDao.gravarCachorro() - " + conexao.hashCode());
+		conexao.close();
 
 		return cachorro;
 	}
 
 	public void atualizaCachorro(CachorroBean cachorro) throws SQLException {
 		
+		//Abre conexao
+		abreConexao();
+
 		// String SQL
 		String sql = "UPDATE T_NAC_CACHORRO SET DS_NOME=?, NR_IDADE=?, DS_RACA=?, DT_PREV_ADOCAO=?,DS_STATUS=? WHERE CD_CACHORRO = ?";
 
 		// conexao faz o PreparedStatement
 		PreparedStatement estrutura = conexao.prepareStatement(sql);
-		
-		
 
 		// seta o PreparedStatement
 		estrutura.setString(1, cachorro.getNome());
@@ -130,24 +162,39 @@ public class CachorroDAO {
 
 		// executa a estrutura
 		estrutura.execute();
-		System.out.println("-----> CachorroDAO alterou o cachorro de codigo "+cachorro.getId());		
+		System.out.println("----------> CachorroDAO alterou o cachorro de codigo " + cachorro.getId());
+
+		// fechando recursos
+		estrutura.close();
+		System.out.println("----------> Fechando conexao em CachorroDao.gravarCachorro() - " + conexao.hashCode());
+		conexao.close();
 
 	}
-	
-	public void atualizaStatus(String status, int id) throws SQLException{
-		//SQL
+
+	public void atualizaStatus(String status, int id) throws SQLException {
+		
+		//Abre conexao
+		abreConexao();
+		
+		
+		// SQL
 		String sql = "UPDATE T_NAC_CACHORRO SET DS_STATUS=(?) WHERE CD_CACHORRO=(?)";
-		
-		//Prepara o statement
-		PreparedStatement query = conexao.prepareStatement(sql);
-		query.setString(1, status);
-		query.setInt(2, id);
-		
-		query.execute();
-		System.out.println("---> CachorroDAO alterou o status do cachorro: " + id + " para " + status);
-		
+
+		// Prepara o statement
+		PreparedStatement estrutura = conexao.prepareStatement(sql);
+		estrutura.setString(1, status);
+		estrutura.setInt(2, id);
+
+		estrutura.execute();
+		System.out.println("----------> CachorroDAO alterou o status do cachorro: " + id + " para " + status);
+
+		// fechando recursos
+		estrutura.close();
+		System.out.println("----------> Fechando conexao em CachorroDao.gravarCachorro() - " + conexao.hashCode());
+		conexao.close();
+
 	}
-	
+
 	private CachorroBean preencheCachorro(ResultSet dado) throws SQLException {
 		CachorroBean cachorro = new CachorroBean();
 
