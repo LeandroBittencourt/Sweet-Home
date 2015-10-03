@@ -8,7 +8,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <% String nome = (String) request.getAttribute("nome"); %>
-<% int idade = (int) request.getAttribute("idade"); %>
+<% String idade = (String) request.getAttribute("idade"); %>
 <% String raca = (String) request.getAttribute("raca"); %>
 <% String status = (String) request.getAttribute("status"); %>
 

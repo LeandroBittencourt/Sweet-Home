@@ -28,7 +28,8 @@ public class dogUpdate extends HttpServlet {
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
-	@Override
+    
+    @Override
     protected void service (HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
     	System.out.println(" Entrou no service "+request.getParameter("cachorro"));
 		int dogId = Integer.parseInt(request.getParameter("cachorro"));
