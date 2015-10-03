@@ -12,7 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 import br.com.inovati.BO.CachorroBO;
 import br.com.inovati.beans.CachorroBean;
 
-@WebServlet("/home")
+@WebServlet("/Home")
 public class Home extends HttpServlet {
 
 	// Lista de Cachorros de Home

@@ -35,13 +35,6 @@
        <!--SCRIPTS-->
       <script src="js/jquery-2.1.4.min.js"></script>
       <script src="js/bootstrap.min.js"></script>
-	
-	  <script>
-	  function atualizaCachorro (element){
-    		var dog = (element.parentNode.parentNode.parentNode.parentNode.getAttribute('id'));
-    		window.location.href="/Sweet_Home/dogUpdate.jsp?cachorro="+dog;
-    	}
-	  </script>
       <script type="text/javascript">
       	$(document).ready(function(){
 

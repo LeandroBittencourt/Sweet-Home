@@ -41,7 +41,7 @@ public class dogCadastro extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		try {
 			bo.gravaCachorro(preencheCachorro(request));
-			response.sendRedirect("http://localhost:8080/Sweet_Home/home");
+			response.sendRedirect("http://localhost:8080/Sweet_Home/Home");
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
