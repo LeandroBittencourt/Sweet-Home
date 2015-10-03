@@ -204,6 +204,7 @@ public class CachorroDAO {
 		cachorro.setPrevAdocao(dado.getString("DT_PREV_ADOCAO"));
 		cachorro.setRaca(dado.getString("DS_RACA"));
 		cachorro.setStatus(dado.getString("DS_STATUS"));
+		cachorro.setId(Integer.parseInt(dado.getString("CD_CACHORRO")));
 
 		return cachorro;
 	}

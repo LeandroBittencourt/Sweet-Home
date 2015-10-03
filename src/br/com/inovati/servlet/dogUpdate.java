@@ -30,10 +30,12 @@ public class dogUpdate extends HttpServlet {
 	 */
 	@Override
     protected void service (HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
-    	int dogId = Integer.parseInt(request.getParameter("cachorro"));
+    	System.out.println(" Entrou no service "+request.getParameter("cachorro"));
+		int dogId = Integer.parseInt(request.getParameter("cachorro"));
     	CachorroBean dog = new CachorroBean();
     	try {
 			dog = bo.getCachorro(dogId);
+			System.out.println(dog);
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
