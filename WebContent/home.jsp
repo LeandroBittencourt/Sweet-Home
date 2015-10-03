@@ -39,12 +39,11 @@
 	      	});
 	      	
 	      	$("#btnLogin").click(function(){
-	      		window.location.href='/Sweet_Home/dogCadastro.jsp';
+	      		window.location.href='/Sweet_Home/login.jsp';
 	      	});
 
 		});
-      	
-      	
+
       </script>
    </body>
 </html>

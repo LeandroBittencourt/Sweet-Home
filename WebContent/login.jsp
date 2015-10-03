@@ -11,10 +11,6 @@
          <div class="row">
             <form class="col-xs-12 col-sm-6 col-md-8" role="form">
                 <div class="centerForm">
-                    <div class="form-group centerForm ">
-                        <label for="name">Nome:</label>
-                        <input type="text" class="form-control" id="name">
-                    </div>
                     <div class="form-group centerForm">
                         <label for="idade">email:</label>
                         <input type="email" class="form-control" id="email">
@@ -23,7 +19,8 @@
                         <label for="pswd">senha:</label>
                         <input type="password" class="form-control" id="pswd">
                     </div>
-                    <button type="button" class="btn btn-primary btn-lg">Cadastrar</button>
+                    <h5><a href="/Sweet_Home/novoUsuario.jsp">Clique aqui para criar um novo cadastro</a></h5>
+                    <button type="submit" class="btn btn-primary btn-lg">Login</button>
                 </div>
             </form>
          </div>
