@@ -4,30 +4,26 @@
   <welcome-file-list>
     <welcome-file>home.jsp</welcome-file>
   </welcome-file-list>
-  
-    <error-page>
-		<exception-type>java.lang.Exception</exception-type>
-		<location>/erro.jsp</location>
-	</error-page>
-
-	<error-page>
-		<exception-type>java.lang.Exception</exception-type>
-		<location>/erro.jsp</location>
-	</error-page>
-
-	<error-page>
-		<exception-type>br.com.inovati.exception.GeneralException
+  <error-page>
+    <exception-type>java.lang.Exception</exception-type>
+    <location>/erro.jsp</location>
+  </error-page>
+  <error-page>
+    <exception-type>java.lang.Exception</exception-type>
+    <location>/erro.jsp</location>
+  </error-page>
+  <error-page>
+    <exception-type>br.com.inovati.exception.GeneralException
 		</exception-type>
-		<location>/erro.jsp</location>
-	</error-page>
-
-	<error-page>
-		<exception-type>java.lang.NumberFormatException
+    <location>/erro.jsp</location>
+  </error-page>
+  <error-page>
+    <exception-type>java.lang.NumberFormatException
 		</exception-type>
-		<location>/erro.jsp</location>
-	</error-page>
-	<error-page>
-		<error-code>404</error-code>
-		<location>/erro.jsp</location>
-	</error-page>
+    <location>/erro.jsp</location>
+  </error-page>
+  <error-page>
+    <error-code>404</error-code>
+    <location>/erro.jsp</location>
+  </error-page>
 </web-app>
