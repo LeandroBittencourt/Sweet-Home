@@ -80,7 +80,7 @@ public class CachorroBean {
 	
 	 public String toString() { 
 		 String s = "";
-		 s+="id: "+this.id+"\n";
+		 s+="----------------------\nid: "+this.id+"\n";
 		 s+="idade: "+this.idade+"\n";
 		 s+="nome: "+this.nome+"\n";
 		 s+="prevAdocao: "+this.prevAdocao+"\n";
