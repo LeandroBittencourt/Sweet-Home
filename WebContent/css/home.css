@@ -4,3 +4,7 @@
 input {
     max-width: 50%;
 }
+
+.noStyleLink{
+	outline:none;
+}

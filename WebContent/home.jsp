@@ -38,12 +38,8 @@
                </ul>
                <p class="navbar-text navbar-middle">Faça um animalzinho feliz!</p>
                <form class="navbar-form navbar-right" role="search">
-      			  <button type="submit" class="btn btn-default"><a href="dogCadastro.jsp">Cadastrar novo animal!</a></button>
-                  <div class="form-group">
-                     <input type="email" class="form-control" placeholder="email" id="username">
-                     <input type="password" class="form-control" placeholder="senha" id="pswd">
-                  </div>
-                  <button type="submit" class="btn btn-default">login</button>
+      			  <a href="dogCadastro.jsp" class="noStyleLink"><button type="button" class="btn btn-default">Cadastrar novo animal!</a></button>
+                  <a href="novoUsuario.jsp" class="noStyleLink"><button type="button" class="btn btn-default">login</a></button>
                </form>
             </div><!-- /.navbar-collapse -->
          </div><!-- /.container-fluid -->
