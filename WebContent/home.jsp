@@ -6,44 +6,10 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
  <head>
-      <title>Adoção Sweet home</title>
-      <meta charset="ISO-8859-1">
-      <meta name="description" content="Um site para adoção de cães da clínica Sweet Home">
-      <meta name="keywords" content="adoção,cães,veterinario, cachorros">
-      <meta name="author" content="InovaTI">
-      <meta name="viewport" content="width=device-width, initial-scale=1">
-      <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
-       <link rel="stylesheet" type="text/css" href="css/home.css">
+      <%@ include file="/meta.jsp" %>
    </head>
    <body>
-      <nav class="navbar navbar-default">
-         <div class="container-fluid">
-            <!-- Brand and toggle get grouped for better mobile display -->
-            <div class="navbar-header"> 
-               <a class="navbar-brand" href="#">
-                <img alt="Brand" src="img/sweetHome.jpg">
-               </a>
-               <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-               <span class="sr-only">Toggle navigation</span>
-               <span class="icon-bar"></span>
-               <span class="icon-bar"></span>
-               <span class="icon-bar"></span>
-               </button>
-               <a class="navbar-brand" href="#">Adoção Sweet Home</a>
-            </div>
-            <!-- Collect the nav links, forms, and other content for toggling -->
-            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-               <ul class="nav navbar-nav">
-                  <li class="active"><a href="#">Home <span class="sr-only">(current)</span></a></li>
-               </ul>
-               <p class="navbar-text navbar-middle">Faça um animalzinho feliz!</p>
-               <form class="navbar-form navbar-right" role="search">
-      			  <a href="dogCadastro.jsp" class="noStyleLink"><button type="button" class="btn btn-default">Cadastrar novo animal!</a></button>
-                  <a href="novoUsuario.jsp" class="noStyleLink"><button type="button" class="btn btn-default">login</a></button>
-               </form>
-            </div><!-- /.navbar-collapse -->
-         </div><!-- /.container-fluid -->
-      </nav>
+      <%@ include file="/navHeader.jsp" %>
       <div class="container-fluid">
 		<div class="row">
 		   <c:forEach	items="${dogs}" var="dog" >
@@ -65,5 +31,20 @@
        <!--SCRIPTS-->
       <script src="js/jquery-2.1.4.min.js"></script>
       <script src="js/bootstrap.min.js"></script>
+      <script type="text/javascript">
+      	$(document).ready(function(){
+
+	      	$("#btnNovoAnimal").click(function(){
+	      		window.location.href='/Sweet_Home/dogCadastro.jsp';
+	      	});
+	      	
+	      	$("#btnLogin").click(function(){
+	      		window.location.href='/Sweet_Home/dogCadastro.jsp';
+	      	});
+
+		});
+      	
+      	
+      </script>
    </body>
 </html>

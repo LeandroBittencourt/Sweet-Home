@@ -42,7 +42,7 @@ public class dogCadastro extends HttpServlet {
 		System.out.println("entrou no post");
 		try {
 			bo.gravaCachorro(preencheCachorro(request));
-			response.sendRedirect("http://localhost:8080/NAC_LTP_WEB_PLANOB/home");
+			response.sendRedirect("http://localhost:8080/Sweet_Home/home");
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
