@@ -24,7 +24,7 @@
 		               <div class="btn-group" role="group" aria-label="..." id="groupbutton">
 						  <button type="button" class="btn btn-info" name="contato">Entrar em contato</button>
 						  <button type="button" class="btn btn-warning" name="update" onclick="javascript:atualizaCachorro(this)">Atualizar</button>
-						  <button type="button" class="btn btn-danger" name="delete" onclick="deletaCachorro(this)">Excluir</button>
+						  <button type="button" class="btn btn-danger" name="delete" onclick="javascript:deletaCachorro(this)" id="${dog.id}">Excluir</button>
 					   </div>
 		            </div>
 		         </div>

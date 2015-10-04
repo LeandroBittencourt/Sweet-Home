@@ -60,7 +60,7 @@ public class dogUpdate extends HttpServlet {
 			HttpSession session = request.getSession();
 			session.setAttribute("cachorro", idCachorro);
 
-			System.out.println("peguei o cachorro " + cachorro); //////////////////////////////////////////////
+			System.out.println("peguei o cachorro \n" + cachorro); //////////////////////////////////////////////
 
 			request.getRequestDispatcher("dogUpdate.jsp").forward(request, response);
 		}
@@ -93,6 +93,7 @@ public class dogUpdate extends HttpServlet {
 			e.printStackTrace();
 		}
 		
+		//volta pra home
 		request.getRequestDispatcher("Home").forward(request, response);
 		
 	}
