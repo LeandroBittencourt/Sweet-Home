@@ -9,21 +9,21 @@
       <%@ include file="/navHeader.jsp" %>
       <div class="container-fluid">
          <div class="row">
-            <form class="col-xs-12 col-sm-6 col-md-8" role="form">
+            <form class="col-xs-12 col-sm-6 col-md-8" role="form" method="post" action="novoUsuario">
                 <div class="centerForm">
                     <div class="form-group centerForm ">
                         <label for="name">Nome:</label>
-                        <input type="text" class="form-control" id="name">
+                        <input type="text" class="form-control" id="name" name="nome">
                     </div>
                     <div class="form-group centerForm">
                         <label for="idade">email:</label>
-                        <input type="email" class="form-control" id="email">
+                        <input type="email" class="form-control" id="email" name="email">
                     </div>
                     <div class="form-group centerForm">
                         <label for="pswd">senha:</label>
-                        <input type="password" class="form-control" id="pswd">
+                        <input type="password" class="form-control" id="pswd" name="senha">
                     </div>
-                    <button type="button" class="btn btn-primary btn-lg">Cadastrar</button>
+                    <button type="submit" class="btn btn-primary btn-lg">Cadastrar</button>
                 </div>
             </form>
          </div>

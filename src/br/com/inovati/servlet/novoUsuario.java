@@ -7,13 +7,16 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import br.com.inovati.BO.UsuarioBO;
+import br.com.inovati.beans.UsuarioBean;
+
 /**
  * Servlet implementation class novoUsuario
  */
 @WebServlet("/novoUsuario")
 public class novoUsuario extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
+    private static UsuarioBO bo = new UsuarioBO();   
     /**
      * @see HttpServlet#HttpServlet()
      */
@@ -33,7 +36,21 @@ public class novoUsuario extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
+		System.out.println("entrou no doPost");
+		try {
+			bo.gravaUsuario(preencheUsuario(request));
+		} catch (Exception e) {
+			System.out.println("Erro ao chamar o metodo gravausuario da bo");
+			e.printStackTrace();
+		}
 	}
 
+	
+	private UsuarioBean preencheUsuario (HttpServletRequest request){
+		UsuarioBean usuario = new UsuarioBean();
+		usuario.setEmail(request.getParameter("email"));
+		usuario.setNome(request.getParameter("nome"));
+		usuario.setSenha(request.getParameter("senha"));
+		return usuario;
+	}
 }
