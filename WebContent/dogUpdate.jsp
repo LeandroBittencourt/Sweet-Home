@@ -34,8 +34,8 @@
                     <div class="form-group centerForm">
                         <label for="status">Status:</label>
                         <select type="text" class="form-control" id="status" name="status" value="${status}">
-                       		<option>Disponível</option>
-                       		<option>Adotado</option>
+                       		<option>DISPONIVEL</option>
+                       		<option>ADOTADO</option>
                        	</select>
                     </div>
                     <button type="submit" class="btn btn-primary btn-lg">Atualizar</button>
