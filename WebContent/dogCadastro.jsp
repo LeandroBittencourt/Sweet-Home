@@ -11,6 +11,7 @@
       <%@ include file="/meta.jsp" %>
    </head>
    <body>
+  
       <%@ include file="/navHeader.jsp" %>
       <div class="container-fluid">
          <div class="row">

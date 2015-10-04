@@ -20,9 +20,10 @@
 		               <h3>Dog Name: ${dog.nome}</h3>
 		               <p>Raça: ${dog.raca}</p>
 		               <p>Idade: ${dog.idade}</p>
+		               <p>Status: ${dog.status}</p>
 		               <div class="btn-group" role="group" aria-label="..." id="groupbutton">
 						  <button type="button" class="btn btn-info" name="contato">Entrar em contato</button>
-						  <button type="button" class="btn btn-warning" name="update" onclick="atualizaCachorro(this)">Atualizar</button>
+						  <button type="button" class="btn btn-warning" name="update" onclick="javascript:atualizaCachorro(this)">Atualizar</button>
 						  <button type="button" class="btn btn-danger" name="delete" onclick="deletaCachorro(this)">Excluir</button>
 					   </div>
 		            </div>
@@ -36,16 +37,14 @@
       <script src="js/jquery-2.1.4.min.js"></script>
       <script src="js/bootstrap.min.js"></script>
       <script type="text/javascript">
+      
       	$(document).ready(function(){
-
 	      	$("#btnNovoAnimal").click(function(){
 	      		window.location.href='/Sweet_Home/dogCadastro.jsp';
 	      	});
-	      	
 	      	$("#btnLogin").click(function(){
 	      		window.location.href='/Sweet_Home/login.jsp';
 	      	});
-
 		});
 
       </script>

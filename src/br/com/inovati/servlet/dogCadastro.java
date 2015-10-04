@@ -11,34 +11,29 @@ import javax.servlet.http.HttpServletResponse;
 import br.com.inovati.BO.CachorroBO;
 import br.com.inovati.beans.CachorroBean;
 
-/**
- * Servlet implementation class dogCadastro
- */
 @WebServlet("/dogCadastro")
 public class dogCadastro extends HttpServlet {
-	private static final long serialVersionUID = 1L;
-    private static CachorroBO bo = new CachorroBO();    
-	
-	
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
-    public dogCadastro() {
-        super();
-        // TODO Auto-generated constructor stub
-    }
 
-	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
-	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	// Serial Version Para naum gerar Warning
+	private static final long serialVersionUID = 1L;
+
+	// BO da Servlet
+	private static CachorroBO bo = new CachorroBO();
+
+	// Construtor
+	public dogCadastro() {
+		super();
+	}
+
+	// Metodo DOGET
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 		// TODO Auto-generated method stub
 	}
 
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	// Metodo DOPOST
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 		try {
 			bo.gravaCachorro(preencheCachorro(request));
 			response.sendRedirect("http://localhost:8080/Sweet_Home/Home");
@@ -46,15 +41,16 @@ public class dogCadastro extends HttpServlet {
 			e.printStackTrace();
 		}
 	}
-	
-	private CachorroBean preencheCachorro (HttpServletRequest request){
+
+	// Metodo PREENCHECACHORRO
+	private CachorroBean preencheCachorro(HttpServletRequest request) {
 		CachorroBean cachorro = new CachorroBean();
-		
+
 		cachorro.setIdade(Integer.parseInt(request.getParameter("idade")));
 		cachorro.setNome((request.getParameter("name")));
 		cachorro.setRaca((request.getParameter("raca")));
 		cachorro.setPrevAdocao((request.getParameter("prevAdocao")));
-		
+
 		return cachorro;
 	}
 
