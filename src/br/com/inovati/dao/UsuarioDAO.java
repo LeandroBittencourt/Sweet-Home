@@ -2,6 +2,7 @@ package br.com.inovati.dao;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import br.com.inovati.beans.UsuarioBean;
@@ -62,5 +63,82 @@ public class UsuarioDAO {
 		//Fecha conexão e recursos
 		query.close();
 		conexao.close();
+	}
+	
+	public UsuarioBean getUsuario(int id) throws SQLException{
+		String sql ="SELECT * FROM T_NAC_USUARIO WHERE CD_USUARIO=?";
+		UsuarioBean usuario = new UsuarioBean();
+		//abre conexão
+		abreConexao();
+		PreparedStatement query = conexao.prepareStatement(sql);
+		
+		query.setInt(1, id);
+		
+		ResultSet resultado = query.executeQuery();
+		
+		while(resultado.next()){
+			usuario = preencheUsuario(resultado);
+		}
+		//Fecha conexão e recursos
+		query.close();
+		conexao.close();
+		
+		return usuario;
+		
+	}
+	
+	public int getIDByEmail (String email) throws SQLException{
+		abreConexao();
+		
+		String sql = "SELECT CD_USUARIO FROM T_NAC_USUARIO WHERE DS_EMAIL=?";
+		
+		PreparedStatement query = conexao.prepareStatement(sql);
+		
+		query.setString(1, email);
+		
+		ResultSet resultado = query.executeQuery();
+		
+		int id=0;
+		
+		while(resultado.next()){
+			id = resultado.getInt("CD_USUARIO");
+		}
+		
+		//Fecha conexão e recursos
+		query.close();
+		conexao.close();
+		return id;
+	}
+	
+	public String getSenha(int id) throws SQLException{
+		abreConexao();
+		
+		String sql = "SELECT DS_SENHA FROM T_NAC_USUARIO WHERE CD_USUARIO=?";
+		
+		PreparedStatement query = conexao.prepareStatement(sql);
+		
+		query.setInt(1, id);
+		
+		ResultSet resultado = query.executeQuery();
+		String senha = null;
+		while(resultado.next()){
+			senha = resultado.getString("DS_SENHA");
+		}
+		
+		
+		//Fecha conexão e recursos
+		query.close();
+		conexao.close();
+		
+		return senha;
+	}
+	
+	private UsuarioBean preencheUsuario (ResultSet dado) throws SQLException{
+		UsuarioBean usuario = new UsuarioBean();
+		usuario.setEmail(dado.getString("DS_EMAIL"));
+		usuario.setNome(dado.getString("DS_NOME"));
+		usuario.setId(dado.getInt("DS_EMAIL"));
+		
+		return usuario;
 	}
 }

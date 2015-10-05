@@ -16,4 +16,22 @@ public class UsuarioBO {
 			e.printStackTrace();
 		}
 	}
+	
+	public boolean login (String senhaForm, String email){
+		int id;
+		try {
+			id = dao.getIDByEmail(email);
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			return false;
+		}
+		String senha = null;
+		try {
+			senha = dao.getSenha(id);
+		} catch (Exception e) {
+			return false;
+		}
+		if(senhaForm==senha)return true;
+		return false;
+	}
 }

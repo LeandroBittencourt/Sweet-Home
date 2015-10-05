@@ -44,6 +44,10 @@ public class UsuarioBean {
 	public int getId() {
 		return id;
 	}
+	
+	public void setId(int id){
+		this.id =id;
+	}
 
 	public UsuarioBean (String nome, String email, String senha, int idade){
 		super();
