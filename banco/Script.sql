@@ -9,7 +9,7 @@ CREATE TABLE T_NAC_CACHORRO
     ds_nome        VARCHAR2 (100) ,
     nr_idade       NUMBER (2) ,
     ds_raca        VARCHAR2 (40) ,
-    dt_prev_adocao DATE ,
+    dt_prev_adocao VARCHAR (20) ,
     ds_status      VARCHAR2 (15) NOT NULL
   ) ;
 ALTER TABLE T_NAC_CACHORRO ADD CONSTRAINT PK_T_NAC_CACHORRO PRIMARY KEY ( cd_cachorro ) ;
