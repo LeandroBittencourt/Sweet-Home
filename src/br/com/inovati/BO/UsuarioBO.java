@@ -18,7 +18,7 @@ public class UsuarioBO {
 	}
 	
 	public boolean login (String senhaForm, String email){
-		int id;
+		int id=0;
 		try {
 			id = dao.getIDByEmail(email);
 		} catch (SQLException e) {

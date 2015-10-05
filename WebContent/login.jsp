@@ -9,7 +9,7 @@
       <%@ include file="/navHeader.jsp" %>
       <div class="container-fluid">
          <div class="row">
-            <form class="col-xs-12 col-sm-6 col-md-8" role="form">
+            <form class="col-xs-12 col-sm-6 col-md-8" role="form" action="login" method="post">
                 <div class="centerForm">
                     <div class="form-group centerForm">
                         <label for="idade">email:</label>

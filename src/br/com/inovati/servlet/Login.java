@@ -30,6 +30,15 @@ public class Login extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		System.out.println("Entrou no get do login");
+		
+		
+		if(bo.login(request.getParameter("senha"),request.getParameter("email"))){
+			request.getRequestDispatcher("Home").forward(request, response);
+		}
+		else{
+			request.setAttribute("Erro", "Por favor verifique seu usuário e senha");
+			request.getRequestDispatcher("login").forward(request, response);
+		}
 	}
 
 	/**
@@ -37,7 +46,7 @@ public class Login extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		if(bo.login(request.getParameter("senha"),request.getParameter("email"))){
-			request.getRequestDispatcher("Logado").forward(request, response);
+			request.getRequestDispatcher("Home").forward(request, response);
 		}
 		else{
 			request.setAttribute("Erro", "Por favor verifique seu usuário e senha");
