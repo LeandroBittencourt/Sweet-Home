@@ -18,36 +18,39 @@ public class UsuarioBO {
 	}
 
 	public boolean login(String senhaForm, String email) {
+		
 		System.out.println("entrou no verifica senha/login");
+		System.out.println("recebi de email parametro: " + email);
+		System.out.println("recebi de senha parametro: " + senhaForm);
+		
 		int id = 0;
-		
-		
+
 		try {
 			id = dao.getIDByEmail(email);
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			return false;
 		}
-		
-		System.out.println("mostra o id buscando: "+id);
-		
-		
+
+		System.out.println("mostra o id buscando: " + id);
+
 		String senha = null;
-		
-		
+
 		try {
 			senha = dao.getSenha(id);
 		} catch (Exception e) {
 			return false;
 		}
-		
-		
-		System.out.println("mostra a senha buscada: "+senha);
-		System.out.println("mostra senhaform: "+ senhaForm);
-		
-		
-		if (senhaForm.equals(senha))
+
+		System.out.println("mostra a senha buscada: " + senha);
+		System.out.println("mostra senhaform: " + senhaForm);
+
+		if (senhaForm.equals(senha)) {
+			System.out.println("senha igual, login OK");
 			return true;
+		} else {
+			System.out.println("senha diferente, login DENIED");
+		}
 		return false;
 	}
 }

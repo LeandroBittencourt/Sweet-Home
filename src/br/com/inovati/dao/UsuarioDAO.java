@@ -41,6 +41,7 @@ public class UsuarioDAO {
 		System.out.println("-----> Usuario inserido com sucesso no banco!");
 		
 		//Fecha conexão e recursos
+		System.out.println("----------> Fechando conexao em UsuarioDAO.gravaUsuario() - " + conexao.hashCode());
 		query.close();
 		conexao.close();
 	}
@@ -61,8 +62,10 @@ public class UsuarioDAO {
 		System.out.println("-----> Usuario atualizado com sucesso no banco!");
 		
 		//Fecha conexão e recursos
+		System.out.println("----------> Fechando conexao em UsuarioDAO.atualizaUsuario() - " + conexao.hashCode());
 		query.close();
 		conexao.close();
+		
 	}
 	
 	public UsuarioBean getUsuario(int id) throws SQLException{
@@ -79,7 +82,10 @@ public class UsuarioDAO {
 		while(resultado.next()){
 			usuario = preencheUsuario(resultado);
 		}
+		
 		//Fecha conexão e recursos
+		System.out.println("----------> Fechando conexao em UsuarioDAO.atualizaUsuario() - " + conexao.hashCode());
+		resultado.close();
 		query.close();
 		conexao.close();
 		
@@ -88,6 +94,7 @@ public class UsuarioDAO {
 	}
 	
 	public int getIDByEmail (String email) throws SQLException{
+		
 		abreConexao();
 		
 		String sql = "SELECT CD_USUARIO FROM T_NAC_USUARIO WHERE DS_EMAIL=?";
@@ -105,6 +112,8 @@ public class UsuarioDAO {
 		}
 		
 		//Fecha conexão e recursos
+		System.out.println("----------> Fechando conexao em UsuarioDAO.atualizaUsuario() - " + conexao.hashCode());
+		resultado.close();
 		query.close();
 		conexao.close();
 		return id;
@@ -127,6 +136,8 @@ public class UsuarioDAO {
 		
 		
 		//Fecha conexão e recursos
+		System.out.println("----------> Fechando conexao em UsuarioDAO.atualizaUsuario() - " + conexao.hashCode());
+		resultado.close();
 		query.close();
 		conexao.close();
 		

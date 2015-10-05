@@ -13,12 +13,12 @@
                 <div class="centerForm">
                     <div class="form-group centerForm">
                         <label for="idade">email:</label>
-                        <input type="email" class="form-control" id="email" placeholder="Digite seu email">
+                        <input type="email" class="form-control" id="email" placeholder="Digite seu email" name="email">
                         <span>${usernameError}</span>
                     </div>
                     <div class="form-group centerForm">
                         <label for="pswd">senha:</label>
-                        <input type="password" class="form-control" id="pswd" placeholder="digite sua senha">
+                        <input type="password" class="form-control" id="pswd" placeholder="digite sua senha" name="senha">
                         <span>${Erro}</span>
                     </div>
                     <h5><a href="/Sweet_Home/novoUsuario.jsp">Clique aqui para criar um novo cadastro</a></h5>

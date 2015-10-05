@@ -9,49 +9,32 @@ import javax.servlet.http.HttpServletResponse;
 
 import br.com.inovati.BO.UsuarioBO;
 
-/**
- * Servlet implementation class Login
- */
 @WebServlet("/login")
 public class Login extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-    private static UsuarioBO bo = new UsuarioBO();   
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
-    public Login() {
-        super();
-        // TODO Auto-generated constructor stub
-    }
+	private static UsuarioBO bo = new UsuarioBO();
 
-	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
-	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
+	public Login() {
+		super();
+	}
+
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+
 		System.out.println("Entrou no get do login");
-		
-		
-		if(bo.login(request.getParameter("senha"),request.getParameter("email"))){
+
+		if (bo.login(request.getParameter("senha"), request.getParameter("email"))) {
 			request.getRequestDispatcher("Home").forward(request, response);
-		}
-		else{
+		} else {
 			request.setAttribute("Erro", "Por favor verifique seu usuário e senha");
-			request.getRequestDispatcher("login").forward(request, response);
+			request.getRequestDispatcher("login.jsp").forward(request, response);
 		}
 	}
 
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		if(bo.login(request.getParameter("senha"),request.getParameter("email"))){
-			request.getRequestDispatcher("Home").forward(request, response);
-		}
-		else{
-			request.setAttribute("Erro", "Por favor verifique seu usuário e senha");
-			request.getRequestDispatcher("login").forward(request, response);
-		}
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+
+		doGet(request, response);
 	}
 
 }
